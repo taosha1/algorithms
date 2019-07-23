@@ -1,6 +1,6 @@
 public class Test02 {
 
-    //单例模式，懒汉式，线程安全
+    //单例模式，饿汉式，线程安全
     public static class Demo1 {
         private static Demo1 demo1 = new Demo1();
 
@@ -13,7 +13,7 @@ public class Test02 {
         }
     }
 
-    //单例模式，饿汉式，线程不安全
+    //单例模式，懒汉式，线程不安全
     public static class Demo2 {
         private static Demo2 demo2;
 
