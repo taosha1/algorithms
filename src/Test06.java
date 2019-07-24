@@ -14,13 +14,10 @@ public class Test06 {
      * @return 树的根结点
      */
     public static BinaryTreeNode construct(int[] preorder, int[] inorder) {
-
         if (preorder == null || inorder == null || preorder.length != inorder.length) {
             return null;
         }
-
         return construct(preorder, 0, preorder.length - 1, inorder, 0, inorder.length - 1);
-
     }
 
 
@@ -157,6 +154,7 @@ public class Test06 {
         BinaryTreeNode root = construct(preorder, inorder);
         printTree(root);
     }
+
     public static void main(String[] args) {
 //        test1();
 //        test2();
