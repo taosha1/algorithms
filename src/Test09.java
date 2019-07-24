@@ -17,8 +17,6 @@ public class Test09 {
             arr[i] = arr[i - 1] + arr[i - 2];
         }
         return arr[n];
-
-
     }
 
     public static void main(String[] args) {
