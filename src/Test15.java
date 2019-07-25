@@ -14,7 +14,59 @@ public class Test15 {
      * @return 倒数第k个结点
      */
     public static ListNode findKthToTail(ListNode head, int k) {
+        if (head == null) {
+            return null;
+        }
+        ListNode fast = head;
+        ListNode slow = head;
+        for (int i = 1; i < k; i++) {
+            if (fast.next != null)
+                fast = fast.next;
+            else
+                throw new RuntimeException("invalid input 倒数第k个太大");
+        }
+        if (fast.next == null) {
+            return head;
+        }
+        while (fast.next != null) {
+            fast = fast.next;
+            slow = slow.next;
+        }
+        return slow;
+    }
 
-        
+    public static void main(String[] args) {
+        ListNode head = new ListNode();
+        head.value = 1;
+
+        head.next = new ListNode();
+        head.next.value = 2;
+
+        head.next.next = new ListNode();
+        head.next.next.value = 3;
+
+        head.next.next.next = new ListNode();
+        head.next.next.next.value = 4;
+
+        head.next.next.next.next = new ListNode();
+        head.next.next.next.next.value = 5;
+
+        head.next.next.next.next.next = new ListNode();
+        head.next.next.next.next.next.value = 6;
+
+        head.next.next.next.next.next.next = new ListNode();
+        head.next.next.next.next.next.next.value = 7;
+
+        head.next.next.next.next.next.next.next = new ListNode();
+        head.next.next.next.next.next.next.next.value = 8;
+
+        head.next.next.next.next.next.next.next.next = new ListNode();
+        head.next.next.next.next.next.next.next.next.value = 9;
+
+        System.out.println(findKthToTail(head, 1).value); // 倒数第一个
+        System.out.println(findKthToTail(head, 5).value); // 中间的一个
+        System.out.println(findKthToTail(head, 9).value); // 倒数最后一个就是顺数第一个
+
+//        System.out.println(findKthToTail(head, 10));
     }
 }
