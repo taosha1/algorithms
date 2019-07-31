@@ -44,36 +44,6 @@ public class Test24 {
 
 
     }
-//    public static boolean verifySequenceOfBST(int[] sequence) {
-//        if (sequence.length == 1 || sequence.length == 0) {
-//            return true;
-//        }
-//        int root = sequence[sequence.length - 1];
-//        int left = 0;
-//        for (int i = 0; i < sequence.length; i++) {
-//            if (sequence[i] < root && sequence[i + 1] > root) {
-//                left = i;
-//                break;
-//            }
-//        }
-//        int right = sequence.length-2;
-//        int[] leftArr = new int[left + 1];
-//        int[] rightArr = new int[right - left];
-//        Arrays.copyOfRange()
-//        for (int i = 0; i <= left; i++) {
-//            leftArr[i] = sequence[i];
-//        }
-//        for (int i = left + 1; i <= right; i++) {
-//            rightArr[i - left - 1] = sequence[i];
-//        }
-//
-//
-//        if (root < sequence[right] && root > sequence[left]) {
-//            return verifySequenceOfBST(leftArr) && verifySequenceOfBST(rightArr);
-//        } else {
-//            return false;
-//        }
-//    }
 
     public static void main(String[] args) {
         //           10
