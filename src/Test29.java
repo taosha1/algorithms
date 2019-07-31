@@ -7,5 +7,6 @@ public class Test29 {
      */
     public static int moreThanHalfNum(int[] numbers) {
 
+        return 0;
     }
 }
