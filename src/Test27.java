@@ -17,21 +17,63 @@ public class Test27 {
      * @return 双向链表的头结点
      */
     public static BinaryTreeNode convert(BinaryTreeNode root) {
+        if (root == null) {
+            return null;
+        }
+        BinaryTreeNode mostLeft = findMostLeft(root);
+        BinaryTreeNode[] lastNode = {new BinaryTreeNode()};
+        convert(root, lastNode);
 
+
+        return mostLeft;
+    }
+
+    private static BinaryTreeNode findMostLeft(BinaryTreeNode root) {
+        while (root.left != null) {
+            root = root.left;
+        }
+        return root;
+    }
+
+    private static void convert(BinaryTreeNode root, BinaryTreeNode[] lastNode) {
+        if (root == null) {
+            return;
+        }
+        if (root.left != null) {
+            convert(root.left, lastNode);
+        }
+        //对最左边的节点来说 前驱为空
+        root.left = lastNode[0];
+
+        if (lastNode != null) {
+            lastNode[0].right = root;
+        }
+        //调整指向最后链表一个结点的指针
+        lastNode[0] = root;
+
+        if (root.right != null) {
+            convert(root.right, lastNode);
+        }
 
     }
 
     private static void printTree(BinaryTreeNode root) {
-        while (root != null) {
+        if (root != null) {
             printTree(root.left);
-            System.out.print(root.value);
+            System.out.print(root.value + "->");
             printTree(root.right);
         }
     }
+
     public static void main(String[] args) {
         test01();
+        test02();
+        test03();
+        test04();
+        test05();
 
     }
+
     //            10
     //         /      \
     //        6        14
@@ -58,6 +100,8 @@ public class Test27 {
 
         BinaryTreeNode node16 = new BinaryTreeNode();
         node16.value = 16;
+        node16.left =  new BinaryTreeNode();
+        node16.left.value = 15;
 
         node10.left = node6;
         node10.right = node14;
@@ -76,6 +120,15 @@ public class Test27 {
         printList(head);
         System.out.println();
 
+    }
+
+    private static void printList(BinaryTreeNode head) {
+
+        while (head != null) {
+            System.out.print(head.value + "->");
+            head = head.right;
+        }
+        System.out.println();
     }
 
     //               5

@@ -1,3 +1,4 @@
+
 public class Test28 {
     /**
      * 题目：输入一个字符串，打印出该字符事中字符的所有排列。例如输入字符串abc。
@@ -11,7 +12,7 @@ public class Test28 {
             return;
         }
         // 进行排列操作
-        permutation(chars, 0);
+        permutation(chars,0);
     }
 
     /**
@@ -21,7 +22,29 @@ public class Test28 {
      * @param begin 当前处理的位置
      */
     public static void permutation(char[] chars, int begin) {
+        if (begin == chars.length - 1) {
+            System.out.println(chars);
+        }else {
+            char tmp;
+            for (int i = begin; i < chars.length; i++) {
+                // 下面是交换元素的位置
+                tmp = chars[begin];
+                chars[begin] = chars[i];
+                chars[i] = tmp;
 
+                // 处理下一个位置
+                permutation(chars, begin + 1);
+            }
+        }
 
+    }
+
+    public static void main(String[] args) {
+//        char[] c1 = {'a', 'b', 'c'};
+//        permutation(c1);
+//        System.out.println();
+
+        char[] c2 = {'a', 'b', 'c', 'd'};
+        permutation(c2);
     }
 }
